@@ -16,5 +16,6 @@ A Machine Learning web application built using Flask and Python for predictive a
 - NumPy
 
 ## ▶️ Run Project
--pip install -r requirements.txt
--python app.py
+pip install -r requirements.txt
+
+python app.py
