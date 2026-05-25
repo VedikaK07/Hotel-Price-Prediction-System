@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict hotel room prices across Indian cities using Machine Learning. Compare predictions from Linear Regression, Random Forest, and Gradient Boosting models.">
+    <title>Hotel Price Prediction | ML-Powered Indian Hotel Pricing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-badge">
+                <span class="dot"></span>
+                ML-Powered Price Prediction
+            </div>
+            <h1>🏨 Hotel Price Predictor</h1>
+            <p>Predict the best room price across Indian cities using advanced machine learning models</p>
+        </header>
+
+        <!-- Prediction Form -->
+        <section class="glass-card" id="formSection">
+            <div class="section-title">
+                <div class="icon">📊</div>
+                Enter Your Details
+            </div>
+
+            <form id="predictionForm">
+                <div class="prediction-form">
+
+                    <!-- City -->
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" name="city" required>
+                            <option value="">Select a city...</option>
+                        </select>
+                    </div>
+
+                    <!-- Season -->
+                    <div class="form-group">
+                        <label for="season">Season</label>
+                        <select id="season" name="season" required>
+                            <option value="">Select season...</option>
+                        </select>
+                    </div>
+
+                    <!-- Number of Guests -->
+                    <div class="form-group">
+                        <label for="num_guests">Number of Guests</label>
+                        <input type="number" id="num_guests" name="num_guests" min="1" max="10" value="2" required>
+                    </div>
+
+                    <!-- Room Type -->
+                    <div class="form-group">
+                        <label for="room_type">Room Type</label>
+                        <select id="room_type" name="room_type" required>
+                            <option value="">Select room type...</option>
+                        </select>
+                    </div>
+
+                    <!-- Weekend Toggle -->
+                    <div class="form-group">
+                        <label>Day Type</label>
+                        <div class="toggle-group">
+                            <label class="toggle">
+                                <input type="checkbox" id="is_weekend" name="is_weekend">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="toggle-label">Weekend</span>
+                        </div>
+                    </div>
+
+                    <!-- Local Events Toggle -->
+                    <div class="form-group">
+                        <label>Local Events</label>
+                        <div class="toggle-group">
+                            <label class="toggle">
+                                <input type="checkbox" id="has_events" name="has_events">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="toggle-label">Events Nearby</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-predict" id="predictBtn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">🔮 Predict Price</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="results">
+
+            <!-- Average Price Hero -->
+            <div class="glass-card price-hero">
+                <div class="price-label">Predicted Average Price</div>
+                <div class="price-value" id="avgPrice">₹0</div>
+                <div class="price-subtitle">Ensemble average of all 3 ML models</div>
+                <div class="price-meta" id="priceMeta"></div>
+            </div>
+
+            <!-- Model Comparison -->
+            <div class="section-title" style="margin-top: 8px;">
+                <div class="icon">🤖</div>
+                Model Predictions
+            </div>
+            <div class="models-grid" id="modelCards"></div>
+
+            <!-- Hotel Recommendations -->
+            <div class="section-title">
+                <div class="icon">⭐</div>
+                Top 5 Recommended Hotels
+            </div>
+            <div class="hotel-grid" id="hotelCards"></div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Hotel Price Prediction System &mdash; Built with 🐍 Flask &amp; scikit-learn</p>
+            <p style="margin-top: 4px;">Machine Learning Lab Project &copy; 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
